@@ -18,7 +18,7 @@ const RuleConfig = () => {
             <br />
             <label>Demo Request Points <input type="text" value={demoRequests} onChange={(e)=>setDemoRequests(e.target.value)} /></label>
             <br />
-            <label>Purchase Points <input type="text" value={purchasePoints} onChange={setPurchasePoints(e.target.value)}  /></label>
+            <label>Purchase Points <input type="text" value={purchasePoints} onChange={(e)=>setPurchasePoints(e.target.value)}  /></label>
             <br />
             <button type='submit'> Configure Rules</button>
         </form>
