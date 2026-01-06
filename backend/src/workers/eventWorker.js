@@ -3,12 +3,12 @@ const connection = require("../config/redis");
 const connectDB = require("../config/db");
 const Score = require("../models/Score");
 const axios=require('axios')
-console.log("✅ Worker running and waiting for jobs...");
 
-// Connect MongoDB
+
+
 connectDB();
 
-// Button → points mapping (temporary, hardcoded)
+
 const pointsMap = {
   "Email Open": 10,
   "Page View": 5,
@@ -21,11 +21,11 @@ new Worker(
   "event-queue",
   async job => {
     const { button } = job.data;
-    console.log("📥 Processing event:", button);
+    console.log("Processing event:", button);
 
     const points = pointsMap[button] || 0;
 
-    // Find score document (singleton)
+    
     let scoreDoc = await Score.findOne();
 
     if (!scoreDoc) {
@@ -35,7 +35,7 @@ new Worker(
       scoreDoc.updatedAt = new Date();
       await scoreDoc.save();
     }
-    console.log("✅ Score updated:", scoreDoc.totalScore);
+    console.log("Score updated:", scoreDoc.totalScore);
     await axios.post("http://localhost:4000/api/realtime/log", {
   button,
   addedPoints: points,
@@ -46,7 +46,7 @@ new Worker(
 
 
 
-    console.log("✅ Score updated:", scoreDoc.totalScore);
+    console.log("Score updated:", scoreDoc.totalScore);
   },
   { connection }
 );
