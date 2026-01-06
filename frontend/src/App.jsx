@@ -18,10 +18,10 @@ function App() {
       <h1>Welcome to LeadZz</h1>
 
       <nav>
-        <button><Link to="/leaderboard">Leaderboard</Link></button>
-        <button><Link to="/triggerEvents">Trigger Events</Link></button>
-        <button><Link to="/configureRules">Configure Rules</Link></button>
-        <button><Link to="/logs">Logs</Link></button>
+        <Link to="/leaderboard"><button>Leaderboard</button></Link>
+        <Link to="/triggerEvents"><button>Trigger Events</button></Link>
+       <Link to="/configureRules"><button>Configure Rules</button></Link>
+        <Link to="/logs"><button>Logs</button></Link>
       </nav>
 
       <Routes>
