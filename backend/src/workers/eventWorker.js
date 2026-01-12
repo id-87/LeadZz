@@ -41,7 +41,9 @@ new Worker(
   addedPoints: points,
   totalScore: scoreDoc.totalScore,
   timestamp: new Date()
-});
+  }
+
+);
 
 
 

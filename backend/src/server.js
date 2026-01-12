@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const PORT=process.env.PORT
 const http = require("http");
 const app = require("./app");
 const connectDB = require("./config/db");
@@ -21,10 +21,9 @@ connectDB();
 
 io.on("connection", socket => {
   console.log("Client connected:", socket.id);
-  
 });
 
 
-server.listen(4000, () => {
+server.listen(PORT, () => {
   console.log("Server running on port 4000");
 });

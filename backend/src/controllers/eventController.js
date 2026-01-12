@@ -6,6 +6,8 @@ exports.createEvent = async (req, res) => {
 
   const eventId = uuidv4();
 
+  console.log("Inside event Controller-> ",button, eventId)
+
   await eventQueue.add(
     "button-click",
     { eventId, button, timestamp: new Date() },

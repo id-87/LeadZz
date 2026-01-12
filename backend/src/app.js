@@ -11,4 +11,8 @@ app.use("/api", eventRoutes);
 app.use("/api", scoreRoutes);
 app.use("/api/realtime", realtimeRoutes);
 
+app.get("/ping",(req,res) => {
+    res.send("Ping")
+})
+
 module.exports = app;
